@@ -2,6 +2,8 @@ import { connectDB } from "@/lib/db/mongodb";
 import Pet from "@/lib/db/models/Pet";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: Request) {
   try {
     await connectDB();

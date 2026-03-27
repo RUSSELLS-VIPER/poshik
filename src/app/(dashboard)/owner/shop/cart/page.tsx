@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import { AlertCircle, CheckCircle2, Loader2, Trash2 } from "lucide-react";
 
@@ -28,7 +28,7 @@ type ProfileData = {
   address?: string;
 };
 
-export default function OwnerCartPage() {
+function OwnerCartPageContent() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -452,5 +452,21 @@ export default function OwnerCartPage() {
         </section>
       </div>
     </main>
+  );
+}
+
+export default function OwnerCartPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600 shadow-sm">
+            Loading cart...
+          </div>
+        </div>
+      }
+    >
+      <OwnerCartPageContent />
+    </Suspense>
   );
 }

@@ -94,6 +94,8 @@ SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASSWORD=your-app-password
 EMAIL_FROM=your-email@gmail.com
+RESEND_API_KEY=re_...
+SMTP_TIMEOUT_MS=10000
 NEXT_PUBLIC_MAPBOX_TOKEN=your-mapbox-token
 ```
 
@@ -101,6 +103,7 @@ Notes:
 
 - `NEXTAUTH_SECRET` is required for NextAuth JWT/session signing.
 - `STRIPE_WEBHOOK_SECRET` is required if you enable webhook handlers in production.
+- On platforms where SMTP ports are restricted, set `RESEND_API_KEY` and `EMAIL_FROM` to use API-based email delivery.
 - If you use Cloudinary for uploads, set the Cloudinary keys; otherwise file uploads may be stored under `public/uploads/`.
 
 ## Available scripts

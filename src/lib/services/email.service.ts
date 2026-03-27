@@ -42,12 +42,12 @@ function buildVerificationEmailContent({
 }
 
 function getEmailAuth() {
-  const user = process.env.SMTP_USER ?? process.env.EMAIL_USER;
-  const pass = process.env.SMTP_PASSWORD ?? process.env.EMAIL_PASS;
+  const user = process.env.EMAIL_FROM ?? process.env.EMAIL_USER;
+  const pass = process.env.PASS ?? process.env.EMAIL_PASS;
 
   if (!user || !pass) {
     throw new Error(
-      "Email credentials are missing. Set SMTP_USER/SMTP_PASSWORD or EMAIL_USER/EMAIL_PASS."
+      "Email credentials are missing. Set EMAIL_FROM/PASS or EMAIL_USER/EMAIL_PASS."
     );
   }
 

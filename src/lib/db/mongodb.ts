@@ -1,11 +1,5 @@
 import mongoose, { type Mongoose } from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI!;
-
-if (!MONGODB_URI) {
-  throw new Error("Please define MONGODB_URI");
-}
-
 type MongooseCache = {
   conn: Mongoose | null;
   promise: Promise<Mongoose> | null;
@@ -23,12 +17,17 @@ const cached = globalThis.mongooseCache ?? {
 globalThis.mongooseCache = cached;
 
 export async function connectDB() {
+  const mongodbUri = process.env.MONGODB_URI?.trim();
+  if (!mongodbUri) {
+    throw new Error("Please define MONGODB_URI");
+  }
+
   if (cached.conn) {
     return cached.conn;
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI);
+    cached.promise = mongoose.connect(mongodbUri);
   }
 
   cached.conn = await cached.promise;

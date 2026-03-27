@@ -44,7 +44,7 @@ function formatNotificationTime(value?: string): string {
 }
 
 export default function Navbar() {
-  const { status } = useSession();
+  const { data: session, status } = useSession();
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
@@ -70,6 +70,11 @@ export default function Navbar() {
     () => notifications.filter((notification) => !notification.isRead).length,
     [notifications]
   );
+
+  const visibleNavLinks = useMemo(() => {
+    const isAdmin = session?.user?.role === "ADMIN";
+    return navLinks.filter((link) => link.href !== "/admin" || isAdmin);
+  }, [session?.user?.role]);
 
   const loadNotifications = useCallback(async () => {
     if (status !== "authenticated") {
@@ -277,7 +282,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-1 lg:flex">
-            {navLinks.map((link) => (
+            {visibleNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -323,7 +328,7 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="animate-in slide-in-from-top-2 duration-200 border-t border-slate-100 bg-white lg:hidden">
           <div className="mx-auto flex w-full max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
-            {navLinks.map((link) => (
+            {visibleNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

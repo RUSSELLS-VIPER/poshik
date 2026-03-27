@@ -1,26 +1,136 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --landing-accent: #ff7a1a;
+  --landing-dark: #070a13;
+  --landing-soft: #ece9e4;
+  --landing-soft-2: #f2efea;
+  --landing-ink: #0d1124;
+  --landing-muted: #5f6475;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  img,
+  svg,
+  canvas,
+  video,
+  iframe {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+main > * {
+  min-width: 0;
+}
+
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+.pet-light-pattern {
+  background:
+    radial-gradient(circle at 0 0, rgba(255, 122, 26, 0.08), transparent 40%),
+    radial-gradient(circle at 100% 0, rgba(18, 20, 35, 0.06), transparent 42%),
+    linear-gradient(180deg, #f5f4f2 0%, #f3f1ee 100%);
+}
+
+.pet-dark-pattern {
+  background-image:
+    radial-gradient(circle at 12% 12%, rgba(255, 122, 26, 0.1), transparent 28%),
+    radial-gradient(circle at 88% 88%, rgba(255, 122, 26, 0.08), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: auto, auto, 38px 38px, 38px 38px;
+}
+
+.pet-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  border: 1px dashed rgba(255, 122, 26, 0.45);
+  background: rgba(255, 122, 26, 0.08);
+  color: var(--landing-accent);
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.pet-badge::before {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: var(--landing-accent);
+  box-shadow: 0 0 0 5px rgba(255, 122, 26, 0.2);
+}
+
+@keyframes landing-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  opacity: 0;
+  animation: landing-reveal-up 650ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.reveal-delay-1 {
+  animation-delay: 120ms;
+}
+
+.reveal-delay-2 {
+  animation-delay: 220ms;
+}
+
+.reveal-delay-3 {
+  animation-delay: 320ms;
+}
+
+.reveal-delay-4 {
+  animation-delay: 420ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .pet-badge {
+    padding: 0.38rem 0.78rem;
+    font-size: 0.72rem;
+  }
 }

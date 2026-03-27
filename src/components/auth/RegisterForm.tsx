@@ -42,6 +42,11 @@ const registerSchema = z.object({
 });
 
 type RegisterFormData = z.infer<typeof registerSchema>;
+type RegisterResponseData = {
+  message?: string;
+  email?: string;
+  emailSent?: boolean;
+};
 
 const roleLabels = {
   OWNER: "Pet Owner",
@@ -95,11 +100,20 @@ export default function RegisterForm() {
         body: JSON.stringify(data),
       });
 
-      const responseData = await response.json();
+      const responseData = (await response.json()) as RegisterResponseData;
 
       if (!response.ok) {
         setIsError(true);
         setStatusMessage(responseData?.message ?? "Registration failed");
+        return;
+      }
+
+      if (responseData?.emailSent === false) {
+        setIsError(true);
+        setStatusMessage(
+          responseData?.message ??
+            "Account created, but verification email could not be sent right now."
+        );
         return;
       }
 

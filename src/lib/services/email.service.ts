@@ -23,6 +23,7 @@ function getTransporter() {
   const auth = getEmailAuth();
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = Number(process.env.SMTP_PORT ?? 587);
+  const smtpTimeoutMs = Number(process.env.SMTP_TIMEOUT_MS ?? 10000);
 
   if (smtpHost) {
     return nodemailer.createTransport({
@@ -30,12 +31,18 @@ function getTransporter() {
       port: smtpPort,
       secure: smtpPort === 465,
       auth,
+      connectionTimeout: smtpTimeoutMs,
+      greetingTimeout: smtpTimeoutMs,
+      socketTimeout: smtpTimeoutMs,
     });
   }
 
   return nodemailer.createTransport({
     service: process.env.EMAIL_SERVICE ?? "gmail",
     auth,
+    connectionTimeout: smtpTimeoutMs,
+    greetingTimeout: smtpTimeoutMs,
+    socketTimeout: smtpTimeoutMs,
   });
 }
 

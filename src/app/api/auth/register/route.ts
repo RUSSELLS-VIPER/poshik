@@ -7,6 +7,20 @@ import { sendVerificationEmail } from "@/lib/services/email.service";
 
 const ALLOWED_ROLES = new Set(["OWNER", "DOCTOR", "SHOP", "ADMIN"]);
 
+async function trySendVerificationEmail(input: {
+  to: string;
+  name: string;
+  verificationLink: string;
+}) {
+  try {
+    await sendVerificationEmail(input);
+    return true;
+  } catch (error) {
+    console.error("Verification email send failed:", error);
+    return false;
+  }
+}
+
 export async function POST(req: Request) {
   try {
     await connectDB();
@@ -53,16 +67,18 @@ export async function POST(req: Request) {
       existing.emailVerificationExpires = expiresAt;
       await existing.save();
 
-      await sendVerificationEmail({
+      const emailSent = await trySendVerificationEmail({
         to: email,
         name,
         verificationLink,
       });
 
       return NextResponse.json({
-        message:
-          "Account already exists but was not verified. We sent a fresh verification link.",
+        message: emailSent
+          ? "Account already exists but was not verified. We sent a fresh verification link."
+          : "Account exists but email delivery is currently unavailable. Please try registering again in a few minutes to resend verification.",
         email,
+        emailSent,
       });
     }
 
@@ -76,7 +92,7 @@ export async function POST(req: Request) {
       emailVerificationExpires: expiresAt,
     });
 
-    await sendVerificationEmail({
+    const emailSent = await trySendVerificationEmail({
       to: email,
       name,
       verificationLink,
@@ -84,9 +100,11 @@ export async function POST(req: Request) {
 
     return NextResponse.json(
       {
-        message:
-          "Registration successful. Please check your email and click the verification link.",
+        message: emailSent
+          ? "Registration successful. Please check your email and click the verification link."
+          : "Registration successful, but we couldn't send verification email right now. Please try registering again in a few minutes to resend verification.",
         email,
+        emailSent,
       },
       { status: 201 }
     );

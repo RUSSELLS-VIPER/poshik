@@ -39,34 +39,34 @@ export default function AuthShell({
   footerCtaHref,
 }: AuthShellProps) {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full bg-emerald-100/70 blur-2xl" />
-        <div className="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-amber-100/70 blur-2xl" />
+    <section className="relative w-full overflow-hidden rounded-[30px] border border-slate-200/80 bg-white/95 shadow-[0_24px_70px_-40px_rgba(15,23,42,0.6)]">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-emerald-100/80 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-amber-100/70 blur-3xl" />
       </div>
 
-      <div className="relative grid lg:grid-cols-2">
-        <aside className="hidden border-r border-slate-200 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-800 p-10 text-white lg:block">
+      <div className="relative grid xl:grid-cols-[0.95fr,1.05fr]">
+        <aside className="hidden border-r border-slate-200/40 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-800 p-7 text-white xl:block">
           <p className="text-xs uppercase tracking-[0.25em] text-emerald-100/90">
             Poshik
           </p>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight">
-            Care platform for modern pet lives.
+          <h2 className="mt-3 text-3xl font-semibold leading-tight">
+            One place for trusted pet care.
           </h2>
-          <p className="mt-3 text-sm text-emerald-100/90">
+          <p className="mt-2 text-sm text-emerald-100/90">
             A connected space where pet owners, doctors, and shops work
             together with clarity and trust.
           </p>
 
-          <div className="mt-10 space-y-4">
+          <div className="mt-7 space-y-3">
             {highlights.map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm"
+                className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm"
               >
                 <item.icon className="h-5 w-5 text-amber-200" />
-                <h3 className="mt-2 text-sm font-semibold">{item.title}</h3>
-                <p className="mt-1 text-xs text-emerald-100/90">
+                <h3 className="mt-1.5 text-sm font-semibold">{item.title}</h3>
+                <p className="mt-0.5 text-xs text-emerald-100/90">
                   {item.description}
                 </p>
               </div>
@@ -74,16 +74,32 @@ export default function AuthShell({
           </div>
         </aside>
 
-        <div className="p-6 sm:p-8">
+        <div className="max-h-[calc(100dvh-11rem)] overflow-y-auto p-4 sm:p-5 lg:p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">
             {eyebrow}
           </p>
-          <h1 className="mt-3 text-3xl font-bold text-slate-900">{title}</h1>
-          <p className="mt-2 text-sm text-slate-600">{subtitle}</p>
+          <h1 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
+            {title}
+          </h1>
+          <p className="mt-1.5 text-sm text-slate-600">{subtitle}</p>
 
-          <div className="mt-8">{children}</div>
+          <div className="mt-3 grid grid-cols-3 gap-2 xl:hidden">
+            {highlights.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-slate-200 bg-slate-50 px-2 py-2 text-center"
+              >
+                <item.icon className="mx-auto h-4 w-4 text-emerald-700" />
+                <p className="mt-1 text-[10px] font-semibold text-slate-700">
+                  {item.title}
+                </p>
+              </div>
+            ))}
+          </div>
 
-          <p className="mt-8 text-center text-sm text-slate-600">
+          <div className="mt-5">{children}</div>
+
+          <p className="mt-5 text-center text-sm text-slate-600">
             {footerText}{" "}
             <Link
               href={footerCtaHref}

@@ -44,8 +44,8 @@ export async function POST(req: Request) {
 
     const { token, hashedToken, expiresAt } = createEmailVerificationToken();
     const verificationBaseUrl =
-      process.env.NEXT_PUBLIC_APP_URL ??
       process.env.NEXTAUTH_URL ??
+      process.env.NEXT_PUBLIC_APP_URL ??
       new URL(req.url).origin;
     const verificationLink = `${verificationBaseUrl}/api/auth/verify-email?token=${token}&email=${encodeURIComponent(
       email

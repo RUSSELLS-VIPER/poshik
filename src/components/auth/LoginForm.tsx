@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Mail, Lock, Loader2, Eye, EyeOff } from "lucide-react";
+import { Loader2, Eye, EyeOff } from "lucide-react";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 
 type LoginFormProps = {
@@ -88,13 +88,13 @@ export default function LoginForm({ verifiedState }: LoginFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
       {verificationInfo ? (
         <div
           className={
             verificationInfo.type === "success"
-              ? "flex items-start gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-800"
-              : "flex items-start gap-2 rounded-xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-800"
+              ? "flex items-start gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-700"
+              : "flex items-start gap-2 rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-700"
           }
         >
           {verificationInfo.type === "success" ? (
@@ -106,39 +106,35 @@ export default function LoginForm({ verifiedState }: LoginFormProps) {
         </div>
       ) : null}
 
-      <div className="space-y-2">
+      <div className="space-y-1">
         <label htmlFor="email" className="text-sm font-medium text-slate-700">
           Email Address
         </label>
-        <div className="relative">
-          <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-          <input
-            id="email"
-            type="email"
-            placeholder="you@example.com"
-            autoComplete="email"
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 pl-10 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
-            {...register("email")}
-            aria-invalid={errors.email ? "true" : "false"}
-          />
-        </div>
+        <input
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+          autoComplete="email"
+          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-emerald-500 focus:ring-3 focus:ring-emerald-100"
+          {...register("email")}
+          aria-invalid={errors.email ? "true" : "false"}
+        />
         {errors.email ? (
-          <p className="text-sm text-rose-600">{errors.email.message}</p>
+          <p className="text-xs text-rose-600">{errors.email.message}</p>
         ) : null}
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-1">
         <label htmlFor="password" className="text-sm font-medium text-slate-700">
           Password
         </label>
         <div className="relative">
-          <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <input
             id="password"
             type={showPassword ? "text" : "password"}
             placeholder="••••••••"
             autoComplete="current-password"
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 pl-10 pr-10 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 pr-10 text-sm outline-none transition focus:border-emerald-500 focus:ring-3 focus:ring-emerald-100"
             {...register("password")}
             aria-invalid={errors.password ? "true" : "false"}
           />
@@ -156,12 +152,12 @@ export default function LoginForm({ verifiedState }: LoginFormProps) {
           </button>
         </div>
         {errors.password ? (
-          <p className="text-sm text-rose-600">{errors.password.message}</p>
+          <p className="text-xs text-rose-600">{errors.password.message}</p>
         ) : null}
       </div>
 
       {errorMessage ? (
-        <div className="flex items-start gap-2 rounded-xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-800">
+        <div className="flex items-start gap-2 rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-700">
           <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
           <p>{errorMessage}</p>
         </div>
@@ -169,7 +165,7 @@ export default function LoginForm({ verifiedState }: LoginFormProps) {
 
       <button
         type="submit"
-        className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-emerald-700 to-teal-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-700/20 transition hover:from-emerald-800 hover:to-teal-800 disabled:cursor-not-allowed disabled:opacity-70"
+        className="flex w-full items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
         disabled={isSubmitting}
       >
         {isSubmitting ? (

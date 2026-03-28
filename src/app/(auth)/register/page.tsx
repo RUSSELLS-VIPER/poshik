@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function RegisterPage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-10">
+    <div className="mx-auto flex min-h-[calc(100dvh-9rem)] w-full max-w-6xl items-center py-1 sm:py-2">
       <AuthShell
         eyebrow="Get Started"
         title="Create Your Account"

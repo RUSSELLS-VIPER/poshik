@@ -6,9 +6,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import {
-  Mail,
-  Lock,
-  User,
   Loader2,
   Eye,
   EyeOff,
@@ -55,13 +52,6 @@ const roleLabels = {
   ADMIN: "Administrator",
 };
 
-const roleDescriptions = {
-  OWNER: "Find trusted veterinarians and pet shops",
-  DOCTOR: "Provide veterinary services to pet owners",
-  SHOP: "Sell pet products and supplies",
-  ADMIN: "Manage the platform",
-};
-
 export default function RegisterForm() {
   const [statusMessage, setStatusMessage] = useState("");
   const [verificationEmail, setVerificationEmail] = useState("");
@@ -73,7 +63,6 @@ export default function RegisterForm() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    watch,
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -83,8 +72,6 @@ export default function RegisterForm() {
       role: "OWNER",
     },
   });
-
-  const password = watch("password") ?? "";
 
   const onSubmit = async (data: RegisterFormData) => {
     setStatusMessage("");
@@ -135,13 +122,13 @@ export default function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
       {statusMessage ? (
         <div
           className={
             isError
-              ? "flex items-start gap-2 rounded-xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-800"
-              : "flex items-start gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-800"
+              ? "flex items-start gap-2 rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-700"
+              : "flex items-start gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-700"
           }
         >
           {isError ? (
@@ -161,60 +148,55 @@ export default function RegisterForm() {
         </div>
       ) : null}
 
-      <div className="space-y-2">
-        <label htmlFor="name" className="text-sm font-medium text-slate-700">
-          Full Name
-        </label>
-        <div className="relative">
-          <User className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="space-y-1">
+          <label htmlFor="name" className="text-sm font-medium text-slate-700">
+            Full Name
+          </label>
           <input
             id="name"
             type="text"
             placeholder="Full Name"
             autoComplete="name"
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 pl-10 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-emerald-500 focus:ring-3 focus:ring-emerald-100"
             {...register("name")}
             aria-invalid={errors.name ? "true" : "false"}
           />
+          {errors.name ? (
+            <p className="text-xs text-rose-600">{errors.name.message}</p>
+          ) : null}
         </div>
-        {errors.name ? (
-          <p className="text-sm text-rose-600">{errors.name.message}</p>
-        ) : null}
-      </div>
 
-      <div className="space-y-2">
-        <label htmlFor="email" className="text-sm font-medium text-slate-700">
-          Email Address
-        </label>
-        <div className="relative">
-          <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+        <div className="space-y-1">
+          <label htmlFor="email" className="text-sm font-medium text-slate-700">
+            Email Address
+          </label>
           <input
             id="email"
             type="email"
             placeholder="you@example.com"
             autoComplete="email"
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 pl-10 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-emerald-500 focus:ring-3 focus:ring-emerald-100"
             {...register("email")}
             aria-invalid={errors.email ? "true" : "false"}
           />
+          {errors.email ? (
+            <p className="text-xs text-rose-600">{errors.email.message}</p>
+          ) : null}
         </div>
-        {errors.email ? (
-          <p className="text-sm text-rose-600">{errors.email.message}</p>
-        ) : null}
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-1">
         <label htmlFor="password" className="text-sm font-medium text-slate-700">
           Password
         </label>
         <div className="relative">
-          <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <input
             id="password"
             type={showPassword ? "text" : "password"}
             placeholder="Create a strong password"
             autoComplete="new-password"
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 pl-10 pr-10 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 pr-10 text-sm outline-none transition focus:border-emerald-500 focus:ring-3 focus:ring-emerald-100"
             {...register("password")}
             aria-invalid={errors.password ? "true" : "false"}
           />
@@ -232,80 +214,35 @@ export default function RegisterForm() {
           </button>
         </div>
         {errors.password ? (
-          <p className="text-sm text-rose-600">{errors.password.message}</p>
+          <p className="text-xs text-rose-600">{errors.password.message}</p>
         ) : null}
-
-        <div className="mt-1 rounded-xl border border-slate-200 bg-slate-50 p-3">
-          <p className="text-xs font-medium text-slate-600">
-            Password checklist
-          </p>
-          <ul className="mt-2 space-y-1 text-xs">
-            <li
-              className={
-                password.length >= 8 ? "text-emerald-700" : "text-slate-500"
-              }
-            >
-              - At least 8 characters
-            </li>
-            <li
-              className={
-                /[A-Z]/.test(password) ? "text-emerald-700" : "text-slate-500"
-              }
-            >
-              - One uppercase letter
-            </li>
-            <li
-              className={
-                /[a-z]/.test(password) ? "text-emerald-700" : "text-slate-500"
-              }
-            >
-              - One lowercase letter
-            </li>
-            <li
-              className={
-                /[0-9]/.test(password) ? "text-emerald-700" : "text-slate-500"
-              }
-            >
-              - One number
-            </li>
-            <li
-              className={
-                /[^A-Za-z0-9]/.test(password)
-                  ? "text-emerald-700"
-                  : "text-slate-500"
-              }
-            >
-              - One special character
-            </li>
-          </ul>
-        </div>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-1">
         <label htmlFor="role" className="text-sm font-medium text-slate-700">
           I am a
         </label>
         <select
           id="role"
-          className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
+          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-emerald-500 focus:ring-3 focus:ring-emerald-100"
           {...register("role")}
         >
           {(Object.keys(roleLabels) as Array<keyof typeof roleLabels>).map(
             (value) => (
               <option key={value} value={value}>
-                {roleLabels[value]} - {roleDescriptions[value]}
+                {roleLabels[value]}
               </option>
             )
           )}
         </select>
         {errors.role ? (
-          <p className="text-sm text-rose-600">{errors.role.message}</p>
+          <p className="text-xs text-rose-600">{errors.role.message}</p>
         ) : null}
       </div>
 
       <button
         type="submit"
-        className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-emerald-700 to-teal-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-700/20 transition hover:from-emerald-800 hover:to-teal-800 disabled:cursor-not-allowed disabled:opacity-70"
+        className="flex w-full items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
         disabled={isSubmitting}
       >
         {isSubmitting ? (

@@ -42,12 +42,42 @@ function buildVerificationEmailContent({
 }
 
 function getEmailAuth() {
-  const user = process.env.EMAIL_FROM ?? process.env.EMAIL_USER;
-  const pass = process.env.PASS ?? process.env.EMAIL_PASS;
+  const user =
+    process.env.SMTP_USER ??
+    process.env.EMAIL_USER ??
+    process.env.EMAIL_FROM;
+  const pass =
+    process.env.SMTP_PASSWORD ??
+    process.env.EMAIL_PASS ??
+    process.env.PASS;
+  const gmailClientId =
+    process.env.GMAIL_CLIENT_ID ?? process.env.GOOGLE_CLIENT_ID;
+  const gmailClientSecret =
+    process.env.GMAIL_CLIENT_SECRET ?? process.env.GOOGLE_CLIENT_SECRET;
+  const gmailRefreshToken =
+    process.env.GMAIL_REFRESH_TOKEN ?? process.env.GOOGLE_REFRESH_TOKEN;
+  const gmailAccessToken =
+    process.env.GMAIL_ACCESS_TOKEN ?? process.env.GOOGLE_ACCESS_TOKEN;
+
+  if (
+    user &&
+    gmailClientId &&
+    gmailClientSecret &&
+    (gmailRefreshToken || gmailAccessToken)
+  ) {
+    return {
+      type: "OAuth2" as const,
+      user,
+      clientId: gmailClientId,
+      clientSecret: gmailClientSecret,
+      refreshToken: gmailRefreshToken,
+      accessToken: gmailAccessToken,
+    };
+  }
 
   if (!user || !pass) {
     throw new Error(
-      "Email credentials are missing. Set EMAIL_FROM/PASS or EMAIL_USER/EMAIL_PASS."
+      "Email credentials are missing. Provide SMTP_USER/SMTP_PASSWORD (or EMAIL_USER/EMAIL_PASS). If using Gmail OAuth, also provide GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET with GOOGLE_REFRESH_TOKEN (recommended) or GOOGLE_ACCESS_TOKEN."
     );
   }
 
@@ -95,7 +125,9 @@ async function sendVerificationEmailWithResend({
   html: string;
 }) {
   const apiKey = process.env.RESEND_API_KEY?.trim();
-  if (!apiKey) {
+  const hasLikelyValidResendKey =
+    Boolean(apiKey) && apiKey !== "re_..." && apiKey!.startsWith("re_");
+  if (!hasLikelyValidResendKey) {
     return false;
   }
 
@@ -135,21 +167,32 @@ export async function sendVerificationEmail({
   });
   const from = process.env.EMAIL_FROM?.trim();
 
-  if (process.env.RESEND_API_KEY?.trim()) {
+  const resendApiKey = process.env.RESEND_API_KEY?.trim();
+  const hasLikelyValidResendKey =
+    typeof resendApiKey === "string" &&
+    resendApiKey !== "re_..." &&
+    resendApiKey.startsWith("re_");
+
+  // Prefer Resend when configured with a real key, but gracefully fall back to SMTP.
+  if (hasLikelyValidResendKey) {
     if (!from) {
       throw new Error(
         "EMAIL_FROM is required when using RESEND_API_KEY for email delivery."
       );
     }
 
-    await sendVerificationEmailWithResend({
-      to,
-      from,
-      subject,
-      text,
-      html,
-    });
-    return;
+    try {
+      await sendVerificationEmailWithResend({
+        to,
+        from,
+        subject,
+        text,
+        html,
+      });
+      return;
+    } catch (error) {
+      console.error("Resend delivery failed, falling back to SMTP:", error);
+    }
   }
 
   const auth = getEmailAuth();

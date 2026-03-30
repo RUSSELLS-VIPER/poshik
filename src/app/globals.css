@@ -3,12 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --landing-accent: #ff7a1a;
-  --landing-dark: #070a13;
-  --landing-soft: #ece9e4;
-  --landing-soft-2: #f2efea;
-  --landing-ink: #0d1124;
-  --landing-muted: #5f6475;
+  --theme-primary: #8b5cf6;
+  --theme-secondary: #f8fafc;
+  --theme-accent: #10b981;
+  --theme-neutral: #0f172a;
+  --theme-primary-soft: #a78bfa;
+  --theme-primary-deep: #7c3aed;
+  --landing-accent: var(--theme-accent);
+  --landing-dark: var(--theme-neutral);
+  --landing-soft: var(--theme-secondary);
+  --landing-soft-2: #f1f5f9;
+  --landing-ink: var(--theme-neutral);
+  --landing-muted: #475569;
 }
 
 @layer base {
@@ -45,21 +51,61 @@ main > * {
   min-width: 0;
 }
 
+body {
+  background-color: var(--theme-secondary);
+  color: var(--theme-neutral);
+  font-family: var(--font-outfit), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.hero-image-overlay {
+  background-image: linear-gradient(
+    to right,
+    rgba(15, 23, 42, 0.78),
+    rgba(15, 23, 42, 0.55),
+    rgba(15, 23, 42, 0.32)
+  );
+}
+
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"] {
+  font-family: var(--font-outfit), sans-serif;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--theme-primary);
+  outline-offset: 1px;
+}
+
 .overflow-x-auto {
   -webkit-overflow-scrolling: touch;
 }
 
 .pet-light-pattern {
   background:
-    radial-gradient(circle at 0 0, rgba(255, 122, 26, 0.08), transparent 40%),
-    radial-gradient(circle at 100% 0, rgba(18, 20, 35, 0.06), transparent 42%),
-    linear-gradient(180deg, #f5f4f2 0%, #f3f1ee 100%);
+    radial-gradient(circle at 0 0, rgba(139, 92, 246, 0.14), transparent 40%),
+    radial-gradient(circle at 100% 0, rgba(16, 185, 129, 0.1), transparent 42%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
 .pet-dark-pattern {
   background-image:
-    radial-gradient(circle at 12% 12%, rgba(255, 122, 26, 0.1), transparent 28%),
-    radial-gradient(circle at 88% 88%, rgba(255, 122, 26, 0.08), transparent 24%),
+    radial-gradient(circle at 12% 12%, rgba(139, 92, 246, 0.18), transparent 28%),
+    radial-gradient(circle at 88% 88%, rgba(16, 185, 129, 0.14), transparent 24%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: auto, auto, 38px 38px, 38px 38px;
@@ -71,8 +117,8 @@ main > * {
   gap: 0.5rem;
   border-radius: 999px;
   padding: 0.45rem 0.95rem;
-  border: 1px dashed rgba(255, 122, 26, 0.45);
-  background: rgba(255, 122, 26, 0.08);
+  border: 1px dashed rgba(16, 185, 129, 0.45);
+  background: rgba(16, 185, 129, 0.1);
   color: var(--landing-accent);
   font-weight: 800;
   font-size: 0.8rem;
@@ -85,7 +131,7 @@ main > * {
   height: 0.6rem;
   border-radius: 999px;
   background: var(--landing-accent);
-  box-shadow: 0 0 0 5px rgba(255, 122, 26, 0.2);
+  box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.2);
 }
 
 @keyframes landing-reveal-up {

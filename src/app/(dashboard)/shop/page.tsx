@@ -294,28 +294,28 @@ export default function ShopDashboardPage() {
 
   return (
     <main className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="rounded-3xl border border-orange-200 bg-gradient-to-r from-orange-700 via-amber-700 to-rose-700 p-6 text-white shadow-xl sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-100">
+      <section className="rounded-3xl border border-violet-200 bg-gradient-to-r from-violet-700 via-violet-700 to-rose-700 p-6 text-white shadow-xl sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-100">
           Shop Owner Panel
         </p>
         <h1 className="mt-2 text-2xl font-bold sm:text-3xl">
           Product and order management
         </h1>
-        <p className="mt-2 text-sm text-orange-100/90">
+        <p className="mt-2 text-sm text-violet-100/90">
           Add products, manage inventory, and update order status from one place.
         </p>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-orange-100/90">Products</p>
+            <p className="text-xs text-violet-100/90">Products</p>
             <p className="text-2xl font-semibold">{totalProducts}</p>
           </div>
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-orange-100/90">Orders</p>
+            <p className="text-xs text-violet-100/90">Orders</p>
             <p className="text-2xl font-semibold">{totalOrders}</p>
           </div>
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-orange-100/90">Revenue</p>
+            <p className="text-xs text-violet-100/90">Revenue</p>
             <p className="text-2xl font-semibold">₹{totalRevenue.toFixed(2)}</p>
           </div>
         </div>
@@ -341,7 +341,7 @@ export default function ShopDashboardPage() {
       <div className="grid gap-6 xl:grid-cols-[0.95fr,1.05fr]">
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <div className="mb-4 flex items-center gap-2">
-            <Package className="h-5 w-5 text-orange-700" />
+            <Package className="h-5 w-5 text-violet-700" />
             <h2 className="text-lg font-semibold text-slate-900">Add Product</h2>
           </div>
 
@@ -352,7 +352,7 @@ export default function ShopDashboardPage() {
                 setDraft((previous) => ({ ...previous, name: event.target.value }))
               }
               placeholder="Product name"
-              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100"
+              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
             />
             <textarea
               value={draft.description}
@@ -364,7 +364,7 @@ export default function ShopDashboardPage() {
               }
               placeholder="Description"
               rows={3}
-              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100"
+              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
             />
             <div className="grid gap-3 sm:grid-cols-2">
               <input
@@ -378,7 +378,7 @@ export default function ShopDashboardPage() {
                   }))
                 }
                 placeholder="Price"
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100"
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
               />
               <input
                 type="number"
@@ -391,7 +391,7 @@ export default function ShopDashboardPage() {
                   }))
                 }
                 placeholder="Stock"
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100"
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
               />
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -404,7 +404,7 @@ export default function ShopDashboardPage() {
                   }))
                 }
                 placeholder="Category"
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100"
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
               />
               <input
                 value={draft.imageUrl}
@@ -415,7 +415,7 @@ export default function ShopDashboardPage() {
                   }))
                 }
                 placeholder="Image URL"
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-orange-500 focus:ring-4 focus:ring-orange-100"
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
               />
             </div>
             <label className="flex items-center gap-2 rounded-xl border border-slate-300 px-3 py-2 text-sm text-slate-700">
@@ -436,7 +436,7 @@ export default function ShopDashboardPage() {
             <button
               type="submit"
               disabled={isSubmittingProduct}
-              className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-orange-700 to-rose-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-orange-700/20 transition hover:from-orange-800 hover:to-rose-800 disabled:cursor-not-allowed disabled:opacity-70"
+              className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-violet-700 to-rose-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-700/20 transition hover:from-violet-800 hover:to-rose-800 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isSubmittingProduct ? (
                 <>
@@ -452,7 +452,7 @@ export default function ShopDashboardPage() {
 
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <div className="mb-4 flex items-center gap-2">
-            <Package className="h-5 w-5 text-orange-700" />
+            <Package className="h-5 w-5 text-violet-700" />
             <h2 className="text-lg font-semibold text-slate-900">
               Manage Products
             </h2>
@@ -605,7 +605,7 @@ export default function ShopDashboardPage() {
                             href={product.imageUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="mt-1 inline-block text-xs text-orange-700 underline"
+                            className="mt-1 inline-block text-xs text-violet-700 underline"
                           >
                             View image
                           </a>
@@ -650,7 +650,7 @@ export default function ShopDashboardPage() {
 
       <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
         <div className="mb-4 flex items-center gap-2">
-          <ShoppingBag className="h-5 w-5 text-orange-700" />
+          <ShoppingBag className="h-5 w-5 text-violet-700" />
           <h2 className="text-lg font-semibold text-slate-900">Manage Orders</h2>
         </div>
 

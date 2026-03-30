@@ -24,7 +24,7 @@ export default function OwnerDashboard() {
   if (!session) {
     return (
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-6 text-sm text-violet-800 shadow-sm">
           Login required to access the owner dashboard.
         </div>
       </div>
@@ -36,10 +36,10 @@ export default function OwnerDashboard() {
 
   return (
     <div className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-200 bg-gradient-to-r from-emerald-700 via-teal-700 to-cyan-700 p-6 text-white shadow-xl sm:p-8">
+      <section className="relative overflow-hidden rounded-3xl border border-emerald-200 bg-gradient-to-r from-emerald-700 via-violet-700 to-violet-700 p-6 text-white shadow-xl sm:p-8">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-white/10 blur-3xl" />
-          <div className="absolute -left-16 -bottom-16 h-44 w-44 rounded-full bg-amber-300/20 blur-3xl" />
+          <div className="absolute -left-16 -bottom-16 h-44 w-44 rounded-full bg-violet-300/20 blur-3xl" />
         </div>
 
         <div className="relative">

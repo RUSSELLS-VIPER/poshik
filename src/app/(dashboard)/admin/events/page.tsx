@@ -359,7 +359,7 @@ export default function AdminEventsPage() {
   if (!session || role !== "ADMIN") {
     return (
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-6 text-sm text-violet-800 shadow-sm">
           Only admin can host and manage community events.
         </div>
       </div>
@@ -368,7 +368,7 @@ export default function AdminEventsPage() {
 
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="rounded-3xl border border-violet-200 bg-gradient-to-r from-violet-700 via-indigo-700 to-sky-700 p-6 text-white shadow-xl sm:p-8">
+      <section className="rounded-3xl border border-violet-200 bg-gradient-to-r from-violet-700 via-violet-700 to-violet-700 p-6 text-white shadow-xl sm:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-100">
           Admin Events
         </p>
@@ -507,7 +507,7 @@ export default function AdminEventsPage() {
           <button
             type="submit"
             disabled={isSubmitting || isUploadingImage}
-            className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-violet-700 to-indigo-700 px-4 py-2 text-sm font-semibold text-white transition hover:from-violet-800 hover:to-indigo-800 disabled:cursor-not-allowed disabled:opacity-70"
+            className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-violet-700 to-violet-700 px-4 py-2 text-sm font-semibold text-white transition hover:from-violet-800 hover:to-violet-800 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSubmitting ? (
               <>
@@ -598,7 +598,7 @@ export default function AdminEventsPage() {
                       <button
                         type="button"
                         onClick={() => startEditingEvent(eventItem)}
-                        className="rounded-lg border border-indigo-300 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 transition hover:bg-indigo-100"
+                        className="rounded-lg border border-violet-300 bg-violet-50 px-3 py-1.5 text-xs font-medium text-violet-700 transition hover:bg-violet-100"
                       >
                         Edit
                       </button>
@@ -608,7 +608,7 @@ export default function AdminEventsPage() {
                         disabled={updatingEventId === eventItem._id}
                         className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition ${
                           eventItem.isActive
-                            ? "border-amber-300 bg-amber-50 text-amber-700 hover:bg-amber-100"
+                            ? "border-violet-300 bg-violet-50 text-violet-700 hover:bg-violet-100"
                             : "border-emerald-300 bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
                         } disabled:cursor-not-allowed disabled:opacity-70`}
                       >

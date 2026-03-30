@@ -445,7 +445,7 @@ export default async function Home() {
           alt="Hero pet"
           className="absolute inset-0 h-full w-full object-cover opacity-45"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0d1acc] via-[#0a0d1a99] to-[#0a0d1a66]" />
+        <div className="hero-image-overlay absolute inset-0" />
         <div className="relative z-10 max-w-2xl">
           <span className="pet-badge">Petcare Intelligence Hub</span>
           <h1 className={`${headingFont.className} mt-4 text-4xl leading-tight sm:text-6xl`}>
@@ -696,7 +696,7 @@ export default async function Home() {
               </p>
               <Link
                 href={`/shop/products/${serviceHighlights[0].id}`}
-                className="inline-flex w-fit items-center rounded-full bg-[#ff7a1a] px-6 py-3 text-sm font-bold text-white hover:bg-[#ff8d3b]"
+                className="inline-flex w-fit items-center rounded-full bg-violet-500 px-6 py-3 text-sm font-bold text-white hover:bg-violet-600"
               >
                 Enquire Now
               </Link>
@@ -737,7 +737,7 @@ export default async function Home() {
                 </div>
                 <Link
                   href={`/shop/products/${serviceHighlights[1].id}`}
-                  className="mt-4 inline-flex items-center rounded-full bg-[#ff7a1a] px-6 py-2.5 text-sm font-bold text-white hover:bg-[#ff8d3b]"
+                  className="mt-4 inline-flex items-center rounded-full bg-violet-500 px-6 py-2.5 text-sm font-bold text-white hover:bg-violet-600"
                 >
                   Enquire Now
                 </Link>

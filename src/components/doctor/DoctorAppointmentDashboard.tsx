@@ -133,7 +133,7 @@ export default function DoctorAppointmentDashboard() {
   if (!session) {
     return (
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-6 text-sm text-violet-800 shadow-sm">
           Login as doctor to manage appointments.
         </div>
       </div>
@@ -143,7 +143,7 @@ export default function DoctorAppointmentDashboard() {
   if (role !== "DOCTOR" && role !== "ADMIN") {
     return (
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-6 text-sm text-violet-800 shadow-sm">
           This dashboard is for doctors.
         </div>
       </div>
@@ -152,24 +152,24 @@ export default function DoctorAppointmentDashboard() {
 
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="rounded-3xl border border-emerald-200 bg-gradient-to-r from-emerald-700 via-teal-700 to-cyan-700 p-6 text-white shadow-xl sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100">
+      <section className="rounded-3xl border border-emerald-200 bg-gradient-to-r from-emerald-700 via-violet-700 to-violet-700 p-6 text-white shadow-xl sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-100">
           Doctor Dashboard
         </p>
         <h1 className="mt-2 text-2xl font-bold sm:text-3xl">
           Manage pet appointments
         </h1>
-        <p className="mt-2 text-sm text-cyan-100/90">
+        <p className="mt-2 text-sm text-violet-100/90">
           Review bookings and update statuses for upcoming consultations.
         </p>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-cyan-100/90">Total appointments</p>
+            <p className="text-xs text-violet-100/90">Total appointments</p>
             <p className="text-2xl font-semibold">{appointments.length}</p>
           </div>
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-cyan-100/90">Upcoming</p>
+            <p className="text-xs text-violet-100/90">Upcoming</p>
             <p className="text-2xl font-semibold">{upcomingCount}</p>
           </div>
         </div>

@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import AuthProvider from "@/components/providers/AuthProvider";
 
-const inter = Inter({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-});
-
-const robotoMono = Roboto_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +24,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${robotoMono.variable} h-full antialiased`}
+      className={`${outfit.variable} h-full antialiased`}
     >
       <body className="min-h-full overflow-x-hidden bg-slate-50 text-slate-900">
         <AuthProvider>
@@ -36,6 +33,7 @@ export default function RootLayout({
             <main className="mx-auto w-full max-w-7xl min-w-0 px-3 py-4 sm:px-4 sm:py-6 lg:px-6">
               {children}
             </main>
+            <Footer />
           </div>
         </AuthProvider>
       </body>

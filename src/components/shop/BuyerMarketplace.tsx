@@ -315,19 +315,19 @@ export default function BuyerMarketplace() {
 
   return (
     <main className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="relative overflow-hidden rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-800 p-6 text-white shadow-2xl sm:p-8">
+      <section className="relative overflow-hidden rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-900 via-violet-800 to-violet-800 p-6 text-white shadow-2xl sm:p-8">
         <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-white/15 blur-2xl" />
         <div className="absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-black/15 to-transparent" />
 
         <div className="relative grid gap-6 lg:grid-cols-[1.25fr,0.75fr]">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-100">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-100">
               Pet Shop
             </p>
             <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
               Everything your pet needs in one place
             </h1>
-            <p className="mt-3 max-w-2xl text-sm text-teal-100/90 sm:text-base">
+            <p className="mt-3 max-w-2xl text-sm text-violet-100/90 sm:text-base">
               Discover premium food, grooming items, toys, and wellness products
               curated for happy, healthy pets.
             </p>
@@ -346,11 +346,11 @@ export default function BuyerMarketplace() {
           </div>
 
           <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur">
-            <p className="text-xs uppercase tracking-[0.16em] text-teal-100">
+            <p className="text-xs uppercase tracking-[0.16em] text-violet-100">
               Cart Snapshot
             </p>
             <p className="mt-2 text-2xl font-bold">{cartItemCount} items</p>
-            <p className="text-sm text-teal-100/90">
+            <p className="text-sm text-violet-100/90">
               {CURRENCY_FORMATTER.format(cartSubtotal)} subtotal
             </p>
 
@@ -360,7 +360,7 @@ export default function BuyerMarketplace() {
                 style={{ width: `${freeShippingProgress}%` }}
               />
             </div>
-            <p className="mt-2 text-xs text-teal-100/90">
+            <p className="mt-2 text-xs text-violet-100/90">
               {amountForFreeShipping > 0
                 ? `Add ${CURRENCY_FORMATTER.format(
                     amountForFreeShipping
@@ -370,7 +370,7 @@ export default function BuyerMarketplace() {
 
             <Link
               href="/owner/shop/cart"
-              className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-teal-900 transition hover:bg-teal-50"
+              className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-violet-900 transition hover:bg-violet-50"
             >
               Go to Checkout
             </Link>
@@ -403,7 +403,7 @@ export default function BuyerMarketplace() {
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               placeholder="Search food, toys, grooming products..."
-              className="w-full rounded-xl border border-slate-300 px-9 py-2 text-sm outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+              className="w-full rounded-xl border border-slate-300 px-9 py-2 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
             />
           </label>
 
@@ -414,7 +414,7 @@ export default function BuyerMarketplace() {
             <select
               value={sortBy}
               onChange={(event) => setSortBy(event.target.value as SortBy)}
-              className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+              className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
             >
               <option value="featured">Featured</option>
               <option value="price-asc">Price: Low to High</option>
@@ -435,8 +435,8 @@ export default function BuyerMarketplace() {
                 onClick={() => setSelectedCategory(entry.category)}
                 className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
                   active
-                    ? "border-teal-500 bg-teal-600 text-white"
-                    : "border-slate-300 bg-white text-slate-700 hover:border-teal-300 hover:text-teal-700"
+                    ? "border-violet-500 bg-violet-600 text-white"
+                    : "border-slate-300 bg-white text-slate-700 hover:border-violet-300 hover:text-violet-700"
                 }`}
               >
                 {entry.category === "ALL" ? "All Products" : toSentenceCase(entry.category)} (
@@ -483,7 +483,7 @@ export default function BuyerMarketplace() {
                     tabIndex={0}
                     role="button"
                     aria-label={`View details for ${product.name}`}
-                    className="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+                    className="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                   >
                     <div className="relative overflow-hidden bg-slate-100">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -496,7 +496,7 @@ export default function BuyerMarketplace() {
                         {toSentenceCase((product.category ?? "GENERAL").replaceAll("_", " "))}
                       </span>
                       {lowStock ? (
-                        <span className="absolute right-2 top-2 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-semibold text-amber-950">
+                        <span className="absolute right-2 top-2 rounded-full bg-violet-400 px-2 py-0.5 text-[10px] font-semibold text-violet-950">
                           Low stock
                         </span>
                       ) : null}
@@ -513,12 +513,12 @@ export default function BuyerMarketplace() {
                           <h3 className="text-sm font-semibold text-slate-900">
                             {product.name}
                           </h3>
-                          <div className="mt-1 flex items-center gap-1 text-[11px] text-amber-500">
-                            <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                            <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                            <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                            <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                            <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                          <div className="mt-1 flex items-center gap-1 text-[11px] text-violet-500">
+                            <Star className="h-3.5 w-3.5 fill-violet-400 text-violet-400" />
+                            <Star className="h-3.5 w-3.5 fill-violet-400 text-violet-400" />
+                            <Star className="h-3.5 w-3.5 fill-violet-400 text-violet-400" />
+                            <Star className="h-3.5 w-3.5 fill-violet-400 text-violet-400" />
+                            <Star className="h-3.5 w-3.5 fill-violet-400 text-violet-400" />
                             <span className="ml-1 text-slate-500">(Top rated)</span>
                           </div>
                         </div>
@@ -577,7 +577,7 @@ export default function BuyerMarketplace() {
                           event.stopPropagation();
                           void addToCart(product._id);
                         }}
-                        className="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-slate-900 to-slate-700 px-3 py-2 text-sm font-semibold text-white transition hover:from-teal-700 hover:to-cyan-700 disabled:cursor-not-allowed disabled:opacity-70"
+                        className="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-slate-900 to-slate-700 px-3 py-2 text-sm font-semibold text-white transition hover:from-violet-700 hover:to-violet-700 disabled:cursor-not-allowed disabled:opacity-70"
                       >
                         {busyProductId === product._id ? (
                           <>
@@ -602,7 +602,7 @@ export default function BuyerMarketplace() {
                           event.stopPropagation();
                           setActiveProduct(product);
                         }}
-                        className="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
+                        className="w-full rounded-xl border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 transition hover:border-violet-300 hover:text-violet-700"
                       >
                         View details
                       </button>
@@ -617,18 +617,18 @@ export default function BuyerMarketplace() {
         <aside className="space-y-4 xl:sticky xl:top-24 xl:h-fit">
           <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
             <div className="mb-3 flex items-center gap-2">
-              <ShoppingCart className="h-5 w-5 text-teal-700" />
+              <ShoppingCart className="h-5 w-5 text-violet-700" />
               <h2 className="text-lg font-semibold text-slate-900">Cart Summary</h2>
             </div>
 
             {isLoadingCart ? (
               <p className="text-sm text-slate-600">Loading cart...</p>
             ) : !session ? (
-              <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">
+              <div className="rounded-lg border border-violet-200 bg-violet-50 p-3 text-sm text-violet-800">
                 <p>Login as pet owner to use cart and checkout.</p>
                 <Link
                   href="/login"
-                  className="mt-2 inline-block rounded-md border border-amber-300 px-3 py-1.5 text-xs font-medium text-amber-900 transition hover:bg-amber-100"
+                  className="mt-2 inline-block rounded-md border border-violet-300 px-3 py-1.5 text-xs font-medium text-violet-900 transition hover:bg-violet-100"
                 >
                   Go to Login
                 </Link>
@@ -649,7 +649,7 @@ export default function BuyerMarketplace() {
 
                 <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200">
                   <div
-                    className="h-full rounded-full bg-teal-600 transition-all"
+                    className="h-full rounded-full bg-violet-600 transition-all"
                     style={{ width: `${freeShippingProgress}%` }}
                   />
                 </div>
@@ -664,7 +664,7 @@ export default function BuyerMarketplace() {
                 <div className="mt-4 space-y-2">
                   <Link
                     href="/owner/shop/cart"
-                    className="block w-full rounded-lg bg-gradient-to-r from-teal-700 to-cyan-700 px-3 py-2 text-center text-sm font-semibold text-white transition hover:from-teal-800 hover:to-cyan-800"
+                    className="block w-full rounded-lg bg-gradient-to-r from-violet-700 to-violet-700 px-3 py-2 text-center text-sm font-semibold text-white transition hover:from-violet-800 hover:to-violet-800"
                   >
                     View Cart and Checkout
                   </Link>
@@ -689,15 +689,15 @@ export default function BuyerMarketplace() {
             </h3>
             <div className="mt-3 space-y-3 text-sm text-slate-700">
               <div className="flex items-start gap-2">
-                <Truck className="mt-0.5 h-4 w-4 text-teal-700" />
+                <Truck className="mt-0.5 h-4 w-4 text-violet-700" />
                 <p>Fast dispatch on most pet essentials.</p>
               </div>
               <div className="flex items-start gap-2">
-                <ShieldCheck className="mt-0.5 h-4 w-4 text-teal-700" />
+                <ShieldCheck className="mt-0.5 h-4 w-4 text-violet-700" />
                 <p>Secure checkout with trusted sellers.</p>
               </div>
               <div className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 text-teal-700" />
+                <CheckCircle2 className="mt-0.5 h-4 w-4 text-violet-700" />
                 <p>Quality products selected for pet owners.</p>
               </div>
             </div>
@@ -718,7 +718,7 @@ export default function BuyerMarketplace() {
                     <p className="text-xs text-slate-500">
                       {toSentenceCase((product.category ?? "GENERAL").replaceAll("_", " "))}
                     </p>
-                    <p className="mt-1 text-sm font-semibold text-teal-700">
+                    <p className="mt-1 text-sm font-semibold text-violet-700">
                       {CURRENCY_FORMATTER.format(Number(product.price ?? 0))}
                     </p>
                   </div>
@@ -753,7 +753,7 @@ export default function BuyerMarketplace() {
 
               <div className="space-y-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-600">
                     {toSentenceCase(
                       (activeProduct.category ?? "GENERAL").replaceAll("_", " ")
                     )}
@@ -808,7 +808,7 @@ export default function BuyerMarketplace() {
                       void addToCart(activeProduct._id);
                     }}
                     disabled={!session || busyProductId === activeProduct._id}
-                    className="inline-flex flex-1 items-center justify-center rounded-xl bg-gradient-to-r from-slate-900 to-slate-700 px-3 py-2 text-sm font-semibold text-white transition hover:from-teal-700 hover:to-cyan-700 disabled:cursor-not-allowed disabled:opacity-70"
+                    className="inline-flex flex-1 items-center justify-center rounded-xl bg-gradient-to-r from-slate-900 to-slate-700 px-3 py-2 text-sm font-semibold text-white transition hover:from-violet-700 hover:to-violet-700 disabled:cursor-not-allowed disabled:opacity-70"
                   >
                     {busyProductId === activeProduct._id ? (
                       <>

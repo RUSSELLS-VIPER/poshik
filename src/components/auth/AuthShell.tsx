@@ -42,11 +42,11 @@ export default function AuthShell({
     <section className="relative w-full overflow-hidden rounded-[30px] border border-slate-200/80 bg-white/95 shadow-[0_24px_70px_-40px_rgba(15,23,42,0.6)]">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-emerald-100/80 blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-amber-100/70 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-violet-100/70 blur-3xl" />
       </div>
 
       <div className="relative grid xl:grid-cols-[0.95fr,1.05fr]">
-        <aside className="hidden border-r border-slate-200/40 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-800 p-7 text-white xl:block">
+        <aside className="hidden border-r border-slate-200/40 bg-gradient-to-br from-emerald-900 via-emerald-800 to-violet-800 p-7 text-white xl:block">
           <p className="text-xs uppercase tracking-[0.25em] text-emerald-100/90">
             Poshik
           </p>
@@ -64,7 +64,7 @@ export default function AuthShell({
                 key={item.title}
                 className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-sm"
               >
-                <item.icon className="h-5 w-5 text-amber-200" />
+                <item.icon className="h-5 w-5 text-violet-200" />
                 <h3 className="mt-1.5 text-sm font-semibold">{item.title}</h3>
                 <p className="mt-0.5 text-xs text-emerald-100/90">
                   {item.description}

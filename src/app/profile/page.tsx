@@ -326,9 +326,9 @@ export default function ProfilePage() {
       case "SHIPPED":
       case "PROCESSING":
       case "CONFIRMED":
-        return "border-sky-200 bg-sky-50 text-sky-700";
+        return "border-violet-200 bg-violet-50 text-violet-700";
       default:
-        return "border-amber-200 bg-amber-50 text-amber-700";
+        return "border-violet-200 bg-violet-50 text-violet-700";
     }
   };
 
@@ -672,7 +672,7 @@ export default function ProfilePage() {
 
   return (
     <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="rounded-3xl border border-emerald-200 bg-gradient-to-r from-emerald-700 via-teal-700 to-cyan-700 px-6 py-6 text-white shadow-xl">
+      <section className="rounded-3xl border border-emerald-200 bg-gradient-to-r from-emerald-700 via-violet-700 to-violet-700 px-6 py-6 text-white shadow-xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-50">
           Profile Center
         </p>
@@ -903,7 +903,7 @@ export default function ProfilePage() {
                   type="button"
                   onClick={saveProfile}
                   disabled={isSavingProfile}
-                  className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-emerald-700 to-teal-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-700/20 transition hover:from-emerald-800 hover:to-teal-800 disabled:cursor-not-allowed disabled:opacity-70"
+                  className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-emerald-700 to-violet-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-700/20 transition hover:from-emerald-800 hover:to-violet-800 disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {isSavingProfile ? (
                     <>
@@ -1109,15 +1109,15 @@ export default function ProfilePage() {
               {orderSummary.total}
             </p>
           </div>
-          <div className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2">
-            <p className="text-xs text-amber-700">Pending</p>
-            <p className="text-xl font-semibold text-amber-800">
+          <div className="rounded-xl border border-violet-200 bg-violet-50 px-3 py-2">
+            <p className="text-xs text-violet-700">Pending</p>
+            <p className="text-xl font-semibold text-violet-800">
               {orderSummary.pending}
             </p>
           </div>
-          <div className="rounded-xl border border-sky-200 bg-sky-50 px-3 py-2">
-            <p className="text-xs text-sky-700">Shipped</p>
-            <p className="text-xl font-semibold text-sky-800">
+          <div className="rounded-xl border border-violet-200 bg-violet-50 px-3 py-2">
+            <p className="text-xs text-violet-700">Shipped</p>
+            <p className="text-xl font-semibold text-violet-800">
               {orderSummary.shipped}
             </p>
           </div>

@@ -340,7 +340,7 @@ export default function PetForm({ ownerId, onPetCreated }: PetFormProps) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-emerald-700 to-teal-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-700/20 transition hover:from-emerald-800 hover:to-teal-800 disabled:cursor-not-allowed disabled:opacity-70"
+            className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-emerald-700 to-violet-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-700/20 transition hover:from-emerald-800 hover:to-violet-800 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSubmitting ? (
               <>

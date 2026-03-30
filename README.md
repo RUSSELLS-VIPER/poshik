@@ -218,3 +218,19 @@ If you want, I can also:
 ---
 
 If you'd like, I can now open a PR with these docs, add a CONTRIBUTING.md, or generate endpoint-level documentation.
+
+
+User credentials
+
+admin: adminpet@yopmail.com(admin)
+pass: Aa12345678@
+
+user: firstonwer@yopmail.com(user)
+pass: Aa12345678@
+
+user: petshopowner@yopmail.com(shop owner)
+pass: Aa12345678@
+
+user: petdoctor@yopmail.com(doctor)
+pass: Aa12345678@
+

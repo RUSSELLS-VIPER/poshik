@@ -399,13 +399,13 @@ export default function PetMap({ refreshKey = 0 }: PetMapProps) {
       <h3 className="text-lg font-semibold text-slate-900">All Public Pets Map</h3>
 
       {locationError ? (
-        <p className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+        <p className="rounded-lg border border-violet-200 bg-violet-50 px-3 py-2 text-sm text-violet-800">
           {locationError}
         </p>
       ) : null}
 
       {mapError ? (
-        <p className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+        <p className="rounded-lg border border-violet-200 bg-violet-50 px-3 py-2 text-sm text-violet-800">
           {mapError}
         </p>
       ) : null}
@@ -420,7 +420,7 @@ export default function PetMap({ refreshKey = 0 }: PetMapProps) {
       ) : null}
 
       {petsError ? (
-        <p className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+        <p className="rounded-lg border border-violet-200 bg-violet-50 px-3 py-2 text-sm text-violet-800">
           {petsError}
         </p>
       ) : null}

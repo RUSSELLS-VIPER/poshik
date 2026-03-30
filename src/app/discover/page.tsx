@@ -613,34 +613,34 @@ export default function PublicDiscoverPage() {
 
   return (
     <main className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="rounded-3xl border border-sky-200 bg-gradient-to-r from-sky-700 via-blue-700 to-cyan-700 p-6 text-white shadow-xl sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-100">
+      <section className="rounded-3xl border border-violet-200 bg-gradient-to-r from-violet-700 via-violet-700 to-violet-700 p-6 text-white shadow-xl sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-100">
           Public Discover
         </p>
         <h1 className="mt-2 text-2xl font-bold sm:text-3xl">
           Meet Public Pets In The Community
         </h1>
-        <p className="mt-2 text-sm text-sky-100/90">
+        <p className="mt-2 text-sm text-violet-100/90">
           Click any pet card to instantly focus that pet on the map.
         </p>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-sky-100/90">Public Pets</p>
+            <p className="text-xs text-violet-100/90">Public Pets</p>
             <p className="text-2xl font-semibold">{pets.length}</p>
           </div>
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-sky-100/90">Search Results</p>
+            <p className="text-xs text-violet-100/90">Search Results</p>
             <p className="text-2xl font-semibold">{filteredPets.length}</p>
           </div>
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-sky-100/90">Mapped Pets</p>
+            <p className="text-xs text-violet-100/90">Mapped Pets</p>
             <p className="text-2xl font-semibold">{mappedPetCount}</p>
           </div>
         </div>
       </section>
 
-      <section className="rounded-2xl border border-violet-200 bg-gradient-to-r from-violet-50 via-indigo-50 to-sky-50 p-5 shadow-sm">
+      <section className="rounded-2xl border border-violet-200 bg-gradient-to-r from-violet-50 via-violet-50 to-violet-50 p-5 shadow-sm">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-600">
@@ -740,7 +740,7 @@ export default function PublicDiscoverPage() {
                           Boolean(event.isParticipating) ||
                           (isFull && !event.isParticipating)
                         }
-                        className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-violet-700 to-indigo-700 px-3 py-2 text-sm font-semibold text-white transition hover:from-violet-800 hover:to-indigo-800 disabled:cursor-not-allowed disabled:opacity-70"
+                        className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-violet-700 to-violet-700 px-3 py-2 text-sm font-semibold text-white transition hover:from-violet-800 hover:to-violet-800 disabled:cursor-not-allowed disabled:opacity-70"
                       >
                         {joiningEventId === event._id ? (
                           <>
@@ -773,7 +773,7 @@ export default function PublicDiscoverPage() {
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="Search by pet name, type, breed, or owner..."
-            className="w-full rounded-xl border border-slate-300 px-9 py-2 text-sm outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-300 px-9 py-2 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
           />
         </label>
       </section>
@@ -816,7 +816,7 @@ export default function PublicDiscoverPage() {
                     onClick={() => focusPetOnMap(pet._id)}
                     className={`flex w-full items-start gap-3 rounded-xl border border-slate-200 p-3 text-left transition ${
                       canShowOnMap
-                        ? "bg-white hover:border-sky-300 hover:bg-sky-50/40"
+                        ? "bg-white hover:border-violet-300 hover:bg-violet-50/40"
                         : "cursor-not-allowed bg-slate-50 opacity-80"
                     }`}
                   >
@@ -834,7 +834,7 @@ export default function PublicDiscoverPage() {
                         <p className="truncate text-sm font-semibold text-slate-900">
                           {pet.name || "Unnamed pet"}
                         </p>
-                        <span className="rounded-full border border-sky-200 bg-sky-50 px-2 py-0.5 text-[10px] font-medium text-sky-700">
+                        <span className="rounded-full border border-violet-200 bg-violet-50 px-2 py-0.5 text-[10px] font-medium text-violet-700">
                           Public
                         </span>
                       </div>
@@ -850,7 +850,7 @@ export default function PublicDiscoverPage() {
                       </p>
                       <p
                         className={`mt-1 text-[11px] font-medium ${
-                          canShowOnMap ? "text-sky-700" : "text-slate-500"
+                          canShowOnMap ? "text-violet-700" : "text-slate-500"
                         }`}
                       >
                         {canShowOnMap
@@ -866,7 +866,7 @@ export default function PublicDiscoverPage() {
 
           <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
             <div className="flex items-center gap-2">
-              <MapPinned className="h-5 w-5 text-sky-700" />
+              <MapPinned className="h-5 w-5 text-violet-700" />
               <h2 className="text-lg font-semibold text-slate-900">Discover Map</h2>
             </div>
             <p className="mt-1 text-sm text-slate-600">
@@ -874,7 +874,7 @@ export default function PublicDiscoverPage() {
             </p>
 
             {mapError ? (
-              <p className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+              <p className="mt-3 rounded-lg border border-violet-200 bg-violet-50 px-3 py-2 text-sm text-violet-800">
                 {mapError}
               </p>
             ) : null}

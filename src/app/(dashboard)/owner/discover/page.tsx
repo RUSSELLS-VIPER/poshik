@@ -404,7 +404,7 @@ export default function OwnerDiscoverPage() {
   if (!session) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-6 text-sm text-violet-800 shadow-sm">
           Login required to explore pets from other users.
         </div>
       </div>
@@ -413,28 +413,28 @@ export default function OwnerDiscoverPage() {
 
   return (
     <main className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="rounded-3xl border border-sky-200 bg-gradient-to-r from-sky-700 via-blue-700 to-cyan-700 p-6 text-white shadow-xl sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-100">
+      <section className="rounded-3xl border border-violet-200 bg-gradient-to-r from-violet-700 via-violet-700 to-violet-700 p-6 text-white shadow-xl sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-100">
           Discover
         </p>
         <h1 className="mt-2 text-2xl font-bold sm:text-3xl">
           Explore All Pets From Other Users
         </h1>
-        <p className="mt-2 text-sm text-sky-100/90">
+        <p className="mt-2 text-sm text-violet-100/90">
           Browse profiles and view them on the map when location is available.
         </p>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-sky-100/90">Other Users&apos; Pets</p>
+            <p className="text-xs text-violet-100/90">Other Users&apos; Pets</p>
             <p className="text-2xl font-semibold">{pets.length}</p>
           </div>
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-sky-100/90">Search Results</p>
+            <p className="text-xs text-violet-100/90">Search Results</p>
             <p className="text-2xl font-semibold">{filteredPets.length}</p>
           </div>
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-sky-100/90">Mapped Results</p>
+            <p className="text-xs text-violet-100/90">Mapped Results</p>
             <p className="text-2xl font-semibold">{mappedPetCount}</p>
           </div>
         </div>
@@ -448,7 +448,7 @@ export default function OwnerDiscoverPage() {
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               placeholder="Search by pet name, type, breed, or owner..."
-              className="w-full rounded-xl border border-slate-300 px-9 py-2 text-sm outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+              className="w-full rounded-xl border border-slate-300 px-9 py-2 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
             />
           </label>
 
@@ -463,7 +463,7 @@ export default function OwnerDiscoverPage() {
 
       <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
         <div className="flex items-center gap-2">
-          <MapPinned className="h-5 w-5 text-sky-700" />
+          <MapPinned className="h-5 w-5 text-violet-700" />
           <h2 className="text-lg font-semibold text-slate-900">Discover Map</h2>
         </div>
         <p className="mt-1 text-sm text-slate-600">
@@ -471,7 +471,7 @@ export default function OwnerDiscoverPage() {
         </p>
 
         {mapError ? (
-          <p className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+          <p className="mt-3 rounded-lg border border-violet-200 bg-violet-50 px-3 py-2 text-sm text-violet-800">
             {mapError}
           </p>
         ) : null}
@@ -530,7 +530,7 @@ export default function OwnerDiscoverPage() {
                     className={`rounded-full border px-2 py-0.5 text-xs font-medium ${
                       pet.isPublic === false
                         ? "border-slate-300 bg-slate-100 text-slate-700"
-                        : "border-sky-200 bg-sky-50 text-sky-700"
+                        : "border-violet-200 bg-violet-50 text-violet-700"
                     }`}
                   >
                     {pet.isPublic === false ? "Private" : "Public"}

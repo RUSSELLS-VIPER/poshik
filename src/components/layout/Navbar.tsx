@@ -73,7 +73,12 @@ export default function Navbar() {
 
   const visibleNavLinks = useMemo(() => {
     const isAdmin = session?.user?.role === "ADMIN";
-    return navLinks.filter((link) => link.href !== "/admin" || isAdmin);
+    return navLinks.filter((link) => {
+      if (link.href === "/admin" || link.href === "/api-docs") {
+        return isAdmin;
+      }
+      return true;
+    });
   }, [session?.user?.role]);
 
   const loadNotifications = useCallback(async () => {
@@ -181,7 +186,7 @@ export default function Navbar() {
           href="/"
           className="group flex items-center gap-2 font-bold tracking-tight transition-all duration-300 hover:scale-105"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-teal-500 to-emerald-500 shadow-md transition-all duration-300 group-hover:shadow-lg">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-[#7c3aed] to-[#a78bfa] shadow-md transition-all duration-300 group-hover:shadow-lg">
             <PawPrint className="h-4 w-4 text-white" />
           </div>
           <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-xl text-transparent">
@@ -201,7 +206,7 @@ export default function Navbar() {
                     void loadNotifications();
                   }
                 }}
-                className="relative inline-flex items-center justify-center rounded-full border border-slate-200 bg-white p-2 text-slate-600 transition-all duration-200 hover:border-teal-200 hover:bg-teal-50 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+                className="relative inline-flex items-center justify-center rounded-full border border-slate-200 bg-white p-2 text-slate-600 transition-all duration-200 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
                 aria-label="Open notifications"
                 aria-expanded={isNotificationOpen}
               >
@@ -224,7 +229,7 @@ export default function Navbar() {
                       <button
                         type="button"
                         onClick={() => void markAllNotificationsAsRead()}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 transition-all duration-200 hover:border-teal-300 hover:bg-teal-50 hover:text-teal-600"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 transition-all duration-200 hover:border-violet-300 hover:bg-violet-50 hover:text-violet-700"
                       >
                         <CheckCheck className="h-3.5 w-3.5" />
                         Mark all
@@ -235,7 +240,7 @@ export default function Navbar() {
                       {isLoadingNotifications ? (
                         <div className="flex items-center justify-center px-4 py-8">
                           <div className="flex items-center gap-2">
-                            <Loader2 className="h-4 w-4 animate-spin text-teal-500" />
+                            <Loader2 className="h-4 w-4 animate-spin text-violet-500" />
                             <span className="text-xs text-slate-500">
                               Loading notifications...
                             </span>
@@ -258,10 +263,10 @@ export default function Navbar() {
                             }
                             className={`group w-full border-b border-slate-100 px-4 py-3 text-left transition-all duration-200 hover:bg-slate-50 ${notification.isRead
                                 ? "bg-white"
-                                : "bg-gradient-to-r from-teal-50/50 to-transparent"
+                                : "bg-gradient-to-r from-violet-50/60 to-transparent"
                               }`}
                           >
-                            <p className="text-xs font-semibold text-slate-900 group-hover:text-teal-600">
+                            <p className="text-xs font-semibold text-slate-900 group-hover:text-violet-700">
                               {notification.title}
                             </p>
                             <p className="mt-1 text-xs text-slate-600">
@@ -287,12 +292,12 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ${isLinkActive(link.href)
-                    ? "text-teal-600"
+                    ? "text-violet-700"
                     : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                   }`}
               >
                 {isLinkActive(link.href) && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#7c3aed] to-[#a78bfa] rounded-full" />
                 )}
                 {link.label}
               </Link>
@@ -309,7 +314,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen((previous) => !previous)}
-            className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white p-2 text-slate-600 transition-all duration-200 hover:border-teal-300 hover:bg-teal-50 hover:text-teal-600 lg:hidden"
+            className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white p-2 text-slate-600 transition-all duration-200 hover:border-violet-300 hover:bg-violet-50 hover:text-violet-700 lg:hidden"
             aria-label={
               isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
             }
@@ -333,7 +338,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200 ${isLinkActive(link.href)
-                    ? "bg-gradient-to-r from-teal-50 to-transparent text-teal-600"
+                    ? "bg-gradient-to-r from-violet-50 to-transparent text-violet-700"
                     : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                   }`}
               >

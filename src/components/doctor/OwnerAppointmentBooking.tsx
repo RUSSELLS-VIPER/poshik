@@ -216,7 +216,7 @@ export default function OwnerAppointmentBooking() {
   if (!session) {
     return (
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-6 text-sm text-violet-800 shadow-sm">
           Login as pet owner to book appointments.
         </div>
       </div>
@@ -226,7 +226,7 @@ export default function OwnerAppointmentBooking() {
   if (!canBook) {
     return (
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-6 text-sm text-violet-800 shadow-sm">
           This booking view is available for pet owners.
         </div>
       </div>
@@ -235,14 +235,14 @@ export default function OwnerAppointmentBooking() {
 
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="rounded-3xl border border-indigo-200 bg-gradient-to-r from-indigo-700 via-sky-700 to-cyan-700 p-6 text-white shadow-xl sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-100">
+      <section className="rounded-3xl border border-violet-200 bg-gradient-to-r from-violet-700 via-violet-700 to-violet-700 p-6 text-white shadow-xl sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-100">
           Pet Owner
         </p>
         <h1 className="mt-2 text-2xl font-bold sm:text-3xl">
           Book vet appointments
         </h1>
-        <p className="mt-2 text-sm text-sky-100/90">
+        <p className="mt-2 text-sm text-violet-100/90">
           Choose doctor, pet, date, and time to schedule your visit.
         </p>
       </section>
@@ -267,7 +267,7 @@ export default function OwnerAppointmentBooking() {
       <div className="grid gap-6 xl:grid-cols-[1fr,1fr]">
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <div className="mb-4 flex items-center gap-2">
-            <Stethoscope className="h-5 w-5 text-indigo-700" />
+            <Stethoscope className="h-5 w-5 text-violet-700" />
             <h2 className="text-lg font-semibold text-slate-900">New Appointment</h2>
           </div>
 
@@ -277,7 +277,7 @@ export default function OwnerAppointmentBooking() {
               onChange={(event) =>
                 setForm((previous) => ({ ...previous, doctorId: event.target.value }))
               }
-              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
               required
             >
               <option value="">Select doctor</option>
@@ -293,7 +293,7 @@ export default function OwnerAppointmentBooking() {
               onChange={(event) =>
                 setForm((previous) => ({ ...previous, petId: event.target.value }))
               }
-              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
               required
             >
               <option value="">Select pet</option>
@@ -311,7 +311,7 @@ export default function OwnerAppointmentBooking() {
                 onChange={(event) =>
                   setForm((previous) => ({ ...previous, date: event.target.value }))
                 }
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
                 required
               />
               <input
@@ -320,7 +320,7 @@ export default function OwnerAppointmentBooking() {
                 onChange={(event) =>
                   setForm((previous) => ({ ...previous, time: event.target.value }))
                 }
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
                 required
               />
             </div>
@@ -332,13 +332,13 @@ export default function OwnerAppointmentBooking() {
               }
               rows={3}
               placeholder="Add notes for doctor (optional)"
-              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
             />
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-indigo-700 to-cyan-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-700/20 transition hover:from-indigo-800 hover:to-cyan-800 disabled:cursor-not-allowed disabled:opacity-70"
+              className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-violet-700 to-violet-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-700/20 transition hover:from-violet-800 hover:to-violet-800 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isSubmitting ? (
                 <>
@@ -377,7 +377,7 @@ export default function OwnerAppointmentBooking() {
                           ? "bg-rose-100 text-rose-700"
                           : appointment.status === "COMPLETED"
                             ? "bg-emerald-100 text-emerald-700"
-                            : "bg-amber-100 text-amber-700"
+                            : "bg-violet-100 text-violet-700"
                       }`}
                     >
                       {appointment.status}

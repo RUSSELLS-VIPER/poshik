@@ -264,7 +264,7 @@ export default function SuperAdminUserManager() {
   if (!session) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-6 text-sm text-violet-800 shadow-sm">
           Login required to access admin panel.
         </div>
       </div>
@@ -274,7 +274,7 @@ export default function SuperAdminUserManager() {
   if (role !== "ADMIN") {
     return (
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-6 text-sm text-violet-800 shadow-sm">
           This page is for super admin only.
         </div>
       </div>
@@ -283,35 +283,35 @@ export default function SuperAdminUserManager() {
 
   return (
     <main className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="rounded-3xl border border-sky-200 bg-gradient-to-r from-sky-700 via-blue-700 to-cyan-700 p-6 text-white shadow-xl sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-100">
+      <section className="rounded-3xl border border-violet-200 bg-gradient-to-r from-violet-700 via-violet-700 to-violet-700 p-6 text-white shadow-xl sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-100">
           Super Admin
         </p>
         <h1 className="mt-2 text-2xl font-bold sm:text-3xl">
           Manage All Users, Shop Owners, and Doctors
         </h1>
-        <p className="mt-2 text-sm text-sky-100/90">
+        <p className="mt-2 text-sm text-violet-100/90">
           Search accounts, update roles, verify KYC, and control access from one
           place. You can also host community events for all users.
         </p>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-sky-100/90">Pet Owners</p>
+            <p className="text-xs text-violet-100/90">Pet Owners</p>
             <p className="text-2xl font-semibold">{usersByRole.OWNER.length}</p>
           </div>
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-sky-100/90">Doctors</p>
+            <p className="text-xs text-violet-100/90">Doctors</p>
             <p className="text-2xl font-semibold">{usersByRole.DOCTOR.length}</p>
           </div>
           <div className="rounded-2xl border border-white/20 bg-white/10 p-3 backdrop-blur">
-            <p className="text-xs text-sky-100/90">Shop Owners</p>
+            <p className="text-xs text-violet-100/90">Shop Owners</p>
             <p className="text-2xl font-semibold">{usersByRole.SHOP.length}</p>
           </div>
         </div>
       </section>
 
-      <section className="rounded-2xl border border-violet-200 bg-gradient-to-r from-violet-50 via-indigo-50 to-sky-50 p-5 shadow-sm">
+      <section className="rounded-2xl border border-violet-200 bg-gradient-to-r from-violet-50 via-violet-50 to-violet-50 p-5 shadow-sm">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-600">
@@ -330,7 +330,7 @@ export default function SuperAdminUserManager() {
         <div className="mt-4 flex flex-wrap gap-2">
           <Link
             href="/admin/events"
-            className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-violet-700 to-indigo-700 px-4 py-2 text-sm font-semibold text-white transition hover:from-violet-800 hover:to-indigo-800"
+            className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-violet-700 to-violet-700 px-4 py-2 text-sm font-semibold text-white transition hover:from-violet-800 hover:to-violet-800"
           >
             Open Event Host Panel
           </Link>
@@ -372,13 +372,13 @@ export default function SuperAdminUserManager() {
               }
             }}
             placeholder="Search by name or email"
-            className="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
           />
 
           <select
             value={activeRoleFilter}
             onChange={(event) => setActiveRoleFilter(event.target.value as RoleFilter)}
-            className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+            className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
           >
             <option value="ALL">Filter: All Roles</option>
             <option value="OWNER">Filter: Pet Owners</option>
@@ -533,7 +533,7 @@ export default function SuperAdminUserManager() {
                           href={user.latestKyc.documentUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="mt-1 inline-block text-xs text-indigo-700 underline"
+                          className="mt-1 inline-block text-xs text-violet-700 underline"
                         >
                           View KYC document
                         </a>

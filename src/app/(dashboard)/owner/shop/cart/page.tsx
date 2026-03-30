@@ -276,7 +276,7 @@ function OwnerCartPageContent() {
   if (!session) {
     return (
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-6 text-sm text-violet-800 shadow-sm">
           Login required to access cart.
         </div>
       </div>
@@ -419,7 +419,7 @@ function OwnerCartPageContent() {
               onChange={(event) => setShippingAddress(event.target.value)}
               placeholder="House, road, area, city"
               rows={3}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-700 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-700 outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
             />
           </div>
 
